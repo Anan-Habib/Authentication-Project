@@ -12,11 +12,12 @@ $logedinfo = mysqli_query($connection, $querylog);
 $userloged= mysqli_fetch_assoc($logedinfo);
 if ($userloged) {
     $email= $userloged['email'];
+    $id=$userloged['id'];
 } else {
     echo "No record found.";
 }
 
-$query= "SELECT * FROM user";
+$query = "SELECT * FROM user WHERE id != $id";
 $info = mysqli_query($connection, $query);
 $status = $_GET['status']??'';
 echo $status;
@@ -30,7 +31,10 @@ echo $status;
     <body class="body">
         <div class="log">
             <div class="userloged"><h4>User: <?php if($userloged){ echo $email; }else{echo 'No user loged in';}?></h4></div>
-            <button><a href="logout.php">Logout</a></button>
+            <div class="databtn">
+                <button class="btn"><a href= "edit.php?editId= <?php if($userloged){echo $userloged['id'];}?>">Edit</a></button>
+                <button class="btn"><a href="logout.php">Logout</a></button>
+            </div>
         </div>
         <table class="datatable">
             <tr>
