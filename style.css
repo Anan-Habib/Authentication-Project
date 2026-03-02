@@ -1,0 +1,75 @@
+    /* tegister&login */
+    .main{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .registercontainer, .logincontainer{
+      background-color: black ;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 7% 37% 0%; 
+      border-radius: 20px;
+      padding: 5% 3%;
+    }
+    .heading{
+      color: white;
+      text-align: center;
+    }
+    .inputfield{
+      border-radius: 20px;
+      border:2px solid #9b6dd3;
+      padding: 3%;
+      background-color: transparent;
+      color: white;
+    }
+    .actionbtn{
+      background-color: #9b6dd3;
+      font-size: 16px;
+      padding:3% 20%;
+      border: none;
+      border-radius: 20px;
+    }
+    .registercontainer p, .logincontainer p{
+      color: white;
+      text-align: center;
+    }
+
+    /* register&login-End */
+    /* data */
+    .body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1% 5%;
+    }
+    .log{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      left: 40%;
+    }
+    .log button{
+      border: none;
+      background-color: transparent;
+    }
+    .log button a{
+      text-decoration: none;
+    }
+    .datatable {
+      border-collapse: separate;
+      border-spacing: 5%;
+      width: 50%;
+    }
+    .datatable th, td{
+      background-color: #9b6dd3;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+
+
+    
