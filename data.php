@@ -13,6 +13,7 @@ $userloged= mysqli_fetch_assoc($logedinfo);
 if ($userloged) {
     $email= $userloged['email'];
     $id=$userloged['id'];
+    $admin=$userloged['status'];
 } else {
     echo "No record found.";
 }
@@ -40,15 +41,19 @@ echo $status;
             <tr>
                 <th>ID</th>
                 <th>Email</th>
+                <?php if($admin == 1){?>
                 <th>Edit</th>
                 <th>Delete</th>
+                <?php } ?>
             </tr>
             <?php while($input = mysqli_fetch_assoc($info)) { ?>
             <tr>
                 <td><?php echo $input['id']?></td>
                 <td><?php echo $input['email']?></td>
+                <?php if($admin == 1){?>
                 <td><a href= "edit.php?editId= <?php echo $input['id']?>" class="edit-btn">Edit</a></td>
                 <td><a href= "delete.php?deleteId= <?php echo $input['id']?>" class="delete-btn" onclick="return confirm('Are you sure?')">Delete</a></td>
+                <?php } ?>
             </tr>
             <?php } ?>
         </table>

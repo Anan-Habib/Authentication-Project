@@ -10,7 +10,16 @@ $action=$_POST["action"];
 if($action == "register"){
     $email = $_POST['email'];
     $password = $_POST['psw'];
+    $admin = $_POST['admin'];
+
     if($email != "" && $password != ""){
+        if($admin==1){
+            $query = "insert into user(email, password, status) values('$email', '$password', '$admin')";
+            $insert = mysqli_query($connection, $query);
+            $status = "Seccessfully Inserted";
+            header("location:data.php?status={$status}");
+            return;
+        }
         $query = "insert into user(email, password) values('$email', '$password')";
         $insert = mysqli_query($connection, $query);
         $status = "Seccessfully Inserted";
@@ -36,6 +45,13 @@ else if($action == 'login'){
         $data = mysqli_fetch_assoc($outcome);
         $dbpassword = $data['password'];
         $userid= $data['id'];
+        $admin = $data['status'];
+        if($dbpassword === $formpassword && $admin==1){
+            $_SESSION['id']=$userid;
+            $status='Welcome Admin';
+            header("location:data.php?status={$status}");
+            return;
+        }
         if($dbpassword === $formpassword){
             $_SESSION['id']=$userid;
             $status='Loged In Successfully';
