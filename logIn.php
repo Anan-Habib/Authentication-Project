@@ -22,6 +22,7 @@
       <input type="password" placeholder="Password:" name="psw" id="psw" class="inputfield" required>
       <p>Don't have an account? <a href="register.php">Register</a></p>
       <input type="hidden" value="login" name="action">
+      <input type="hidden" value="1" name="admin">
       <button type="submit" class="actionbtn">Login</button>
     </div>
   </div>  

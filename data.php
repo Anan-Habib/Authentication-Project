@@ -31,7 +31,9 @@ echo $status;
     </head>
     <body class="body">
         <div class="log">
-            <div class="userloged"><h4>User: <?php if($userloged){ echo $email; }else{echo 'No user loged in';}?></h4></div>
+            <div class="userloged">
+                <h4 <?php if($admin==1){ ?> style= "color: red" <?php } ?>><?php echo (($admin == 1) ? 'Admin: ' : 'User: '). $email;?></h4>
+            </div>
             <div class="databtn">
                 <button class="btn"><a href= "edit.php?editId= <?php if($userloged){echo $userloged['id'];}?>">Edit</a></button>
                 <button class="btn"><a href="logout.php">Logout</a></button>
