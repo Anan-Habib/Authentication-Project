@@ -6,6 +6,7 @@ include_once "config.php";
 if(!$connection){
     throw new Exception("Not Connected<br>");
 }
+
 $action=$_POST["action"];
 if($action == "register"){
     $email = $_POST['email'];

@@ -8,7 +8,7 @@
 <form action="task.php" method="post">
 <div class="main">  
   <div class="registercontainer">
-      <h1 class="heading"> Register Email</h1>
+      <h1 class="heading">User Register</h1>
 
 
       <label for="email"><b>Email Adress</b></label>

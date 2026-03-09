@@ -7,5 +7,5 @@ if($deleteId){
     mysqli_query($connection, $query);
     $status = 'Account Deleted'; 
 }
-header("location:data.php?status={$status}");
+header("location:tem_acc.php?status={$status}");
 ?>

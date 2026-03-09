@@ -18,7 +18,7 @@ if ($userloged) {
     echo "No record found.";
 }
 
-$query = "SELECT * FROM user WHERE id != $id";
+$query = "SELECT * FROM user WHERE id != $id && del_status != 1";
 $info = mysqli_query($connection, $query);
 $status = $_GET['status']??'';
 echo $status;
@@ -36,6 +36,9 @@ echo $status;
             </div>
             <div class="databtn">
                 <button class="btn"><a href= "edit.php?editId= <?php if($userloged){echo $userloged['id'];}?>">Edit</a></button>
+                <?php if($admin == 1){?>
+                <button class="btn"><a href= "trash.php">Trash</a></button>
+                <?php } ?>
                 <button class="btn"><a href="logout.php">Logout</a></button>
             </div>
         </div>
@@ -54,7 +57,7 @@ echo $status;
                 <td><?php echo $input['email']?></td>
                 <?php if($admin == 1){?>
                 <td><a href= "edit.php?editId= <?php echo $input['id']?>" class="edit-btn">Edit</a></td>
-                <td><a href= "delete.php?deleteId= <?php echo $input['id']?>" class="delete-btn" onclick="return confirm('Are you sure?')">Delete</a></td>
+                <td><a href= "tem_del.php?tempId= <?php echo $input['id']?>" class="delete-btn" onclick="return confirm('Are you sure?')">Delete</a></td>
                 <?php } ?>
             </tr>
             <?php } ?>
